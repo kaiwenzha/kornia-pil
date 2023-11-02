@@ -555,7 +555,7 @@ def random_crop_size_and_crop_generator(
     for i in range(batch_size):
         params.append(
             torch.tensor(list(
-                transforms.RandomSizedCrop.get_params(img=torch.randn(3, *size), scale=scale.tolist(), ratio=ratio.tolist()))
+                transforms.RandomResizedCrop.get_params(img=torch.randn(3, *size), scale=scale.tolist(), ratio=ratio.tolist()))
             ).to(device=device, dtype=dtype)
         )
     params = torch.stack(params, dim=0)
